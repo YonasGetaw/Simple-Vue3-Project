@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" v-cloak>
+    <p v-if="mode === 1">this is showed</p>
+    <p>{{ fullName() }}</p> 
+    <p>{{ age }}</p>
+    <p><a v-bind:href="url">Google</a></p>
+    <p v-html="raw_url"></p>
+    <hr>
+
+    <label>First Name:</label><br>
+    <input type="text" v-model.lazy.trim="firstName" /><br>
+
+    <label>Middle Name:</label><br>
+    <input type="text" @keyup.enter="updatedMiddleName" /><br>
+
+    <label>Last Name:</label><br>
+    <input type="text" :value="lastName" @input="updateName('last name not changed to getaw', $event)" /><br>
+
+    <label>Age:</label><br>
+    <input type="text" v-model="age" /><br><br>
+
+    <button v-on:click="increment">Increment</button>
+    <button @click.ctrl="age--">Decrement</button>
+  </div>
+
+  <!-- Vue 3 -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
